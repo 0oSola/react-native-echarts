@@ -14,6 +14,8 @@ export default class App extends Component {
     return (
       <View style={{flex: 1, height: this.props.height || 400,}}>
         <WebView
+          useWebKit
+          originWhitelist={['*']}
           ref="chart"
           scrollEnabled = {false}
           injectedJavaScript = {renderChart(this.props)}
