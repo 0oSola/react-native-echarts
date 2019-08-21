@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { WebView, View, StyleSheet, Platform } from 'react-native';
 import renderChart from './renderChart';
 import echarts from './echarts.min';
+import { WebView as IosWebView } from 'react-native-webview';
 
 export default class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -11,6 +12,7 @@ export default class App extends Component {
   }
 
   render() {
+    const WebView = Platform.OS === 'ios'?IosWebView:WebView;
     return (
       <View style={{flex: 1, height: this.props.height || 400,}}>
         <WebView
